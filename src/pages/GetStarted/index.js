@@ -13,7 +13,7 @@ export default function index() {
 
             <View>
                 <Button title="Get Started" />
-                <View style={{ heeight: 16 }} />
+                <View style={{ height: 16 }} />
                 <Button type="secondary" title="Sign In" />
             </View>
 
