@@ -2,4 +2,17 @@ npm i --save react-native-svg
 npm i --dev react-native-svg-transformer
 
 
-react-navigation
+react-navigation digunakan untuk navigasi pada react-native /berpindah antar halaman
+
+npm install @react-navigation/native
+npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+transisi
+stack navigator : berpindah antar halaman  / navigation stack
+cara install nya : npm install @react-navigation/stack
+
+
+button navigation : componenet yang sama yang tidak berubah ketika berpindah halaman
+cara installnya :
+
+//replace tidak menyimppan navigasi halaman kalau navigate menyimpan
