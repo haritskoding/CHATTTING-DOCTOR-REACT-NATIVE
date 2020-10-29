@@ -1,1 +1,5 @@
+npm i --save react-native-svg
 npm i --dev react-native-svg-transformer
+
+
+react-navigation
