@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { ILLogo } from '../../assets'
+import { colors, fonts } from '../../utils'
 
-export default function Splash({ navigation }) {
+const Splash = ({ navigation }) => {
     useEffect(() => {
         setTimeout(() => {
             navigation.replace('GetStarted') //replace tidak menyimppan navigasi halaman kalau navigate menyimpan
-        }, 3000)
+        }, 2500)
     }, [navigation])
 
     return (
@@ -23,18 +24,19 @@ export default function Splash({ navigation }) {
     )
 }
 
+export default Splash;
 
 const styles = StyleSheet.create({
     page: {
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
     },
     title: {
         fontSize: 20,
-        fontFamily: 'Nunito-SemiBold',
-        color: '#112340',
+        fontFamily: fonts.primary[600],
+        color: colors.text.primary,
         marginTop: 20
     }
 })

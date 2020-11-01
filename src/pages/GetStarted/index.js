@@ -2,8 +2,9 @@ import React from 'react'
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { ILGetStarted, ILLogo } from '../../assets'
 import { Button, Gap } from '../../components'
+import { colors, fonts } from '../../utils'
 
-export default function index({ navigation }) {
+const GetStarted = ({ navigation }) => {
     return (
         <ImageBackground source={ILGetStarted} style={styles.page}>
             <View>
@@ -12,12 +13,14 @@ export default function index({ navigation }) {
             </View>
 
             <View>
-                <Button title="Get Started" onPress={() => navigation.navigate('Register')} />
+                <Button
+                    title="Get Started"
+                    onPress={() => navigation.navigate('Register')} />
                 <Gap height={16} />
                 <Button
                     type="secondary"
                     title="Sign In"
-                    onPress={() => navigation.replace("Login")}
+                    onPress={() => navigation.replace('Login')}
                 />
             </View>
 
@@ -25,18 +28,20 @@ export default function index({ navigation }) {
     )
 }
 
+export default GetStarted
+
 const styles = StyleSheet.create({
     page: {
         padding: 40,
         justifyContent: "space-between",
-        backgroundColor: "white",
+        backgroundColor: colors.white,
         flex: 1
     },
     title: {
         fontSize: 28,
-        color: "white",
+        color: colors.white,
         marginTop: 91,
-        fontFamily: 'Nunito-SemiBold',
+        fontFamily: fonts.primary[600],
     }
 
 })

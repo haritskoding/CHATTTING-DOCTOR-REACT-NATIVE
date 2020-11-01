@@ -7,7 +7,6 @@ import Router from './router'
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <GetStarted /> */}
       <Router />
     </NavigationContainer>
   )
