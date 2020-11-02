@@ -1,14 +1,102 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { color } from 'react-native-reanimated'
+import {
+    HomeProfile,
+    DoctorCategory,
+    RatedDoctor,
+    NewsItem,
+    Gap
+} from '../../components'
+import { colors, fonts } from '../../utils'
+import { JSONCategoryDoctor } from '../../assets'
 
-const Doctor = () => {
+
+const Doctor = ({ navigation }) => {
     return (
-        <View>
-            <Text></Text>
+        // <View>
+        //     <Text>arisisi</Text>
+        // </View>
+        <View style={styles.page}>
+            <View style={styles.content}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={styles.wrapperSection}>
+                        <HomeProfile />
+                        <Text style={styles.welcome}>Mau Konsultasi dengan siapa
+                        hari ini?
+                    </Text>
+                    </View>
+
+                    <View style={styles.wrapperScroll}>
+                        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                            <Gap height={30}></Gap>
+                            <View style={styles.category}>
+                                <Gap width={32}></Gap>
+                                {
+                                    JSONCategoryDoctor.data.map(item => {
+                                        return <DoctorCategory key={item.id} category={item.category} onPress={() => NavigationPreloadManager.navigate('ChooseDoctor')} />
+                                    })
+                                }
+                                <Gap width={22}></Gap>
+                            </View>
+                        </ScrollView>
+                    </View>
+                    <View style={styles.wrapperSection}>
+                        <Text style={styles.sectionLabel}>Top Rated Doctors</Text>
+                        <RatedDoctor />
+                        <RatedDoctor />
+                        <RatedDoctor />
+                        <Text style={styles.sectionLabel}>Good News</Text>
+                    </View>
+
+                    <NewsItem />
+                    <NewsItem />
+                    <NewsItem />
+                    <Gap height={30}></Gap>
+                </ScrollView>
+            </View>
         </View>
+
+
     )
 }
 
 export default Doctor
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    page: {
+        backgroundColor: colors.secondary,
+        flex: 1
+    },
+    content: {
+        backgroundColor: colors.white,
+        flex: 1,
+        paddingVertical: 30,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20
+    },
+    wrapperSection: {
+        paddingHorizontal: 16
+    },
+    welcome: {
+        fontSize: 20,
+        fontFamily: fonts.primary[600],
+        color: colors.text.primary,
+        marginTop: 30,
+        marginBottom: 16,
+        maxWidth: 209
+    },
+    category: {
+        flexDirection: 'row',
+    },
+    wrapperScroll: {
+        marginHorizontal: -16
+    },
+    sectionLabel: {
+        fontSize: 16,
+        marginTop: 30,
+        fontFamily: fonts.primary[600],
+        color: colors.text.primary,
+        marginBottom: 16
+    }
+})
