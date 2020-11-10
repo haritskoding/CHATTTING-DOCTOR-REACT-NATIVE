@@ -1,25 +1,30 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    ScrollView,
+    TouchableOpacity
+} from 'react-native'
 import { DummyDoctor2, ICStar, DummyDoctor4 } from '../../../assets'
 import { colors, fonts } from '../../../utils'
 
-const RatedDoctor = () => {
+const RatedDoctor = ({ name, desc, avatar, onPress }) => {
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.container}>
-                <Image source={DummyDoctor4} style={styles.avatar} />
-                <View style={styles.profile}>
-                    <Text style={styles.name}>Teguh</Text>
-                    <Text style={styles.category}>Pediactrian</Text>
-                </View>
-                <View style={styles.rate}>
-                    <ICStar />
-                    <ICStar />
-                    <ICStar />
-                    <ICStar />
-                </View>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
+            <Image source={avatar} style={styles.avatar} />
+            <View style={styles.profile}>
+                <Text style={styles.name}>{name}</Text>
+                <Text style={styles.category}>{desc}</Text>
             </View>
-        </ScrollView>
+            <View style={styles.rate}>
+                <ICStar />
+                <ICStar />
+                <ICStar />
+                <ICStar />
+            </View>
+        </TouchableOpacity>
 
     )
 }
@@ -30,7 +35,8 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingBottom: 16
+        paddingBottom: 16,
+        alignItems: 'center'
     },
     profile: {
         flex: 1,

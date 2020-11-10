@@ -10,7 +10,6 @@ import DummyDoctor8 from './doctor8.png';
 import DummyNews1 from './news1.png';
 import DummyNews2 from './news2.png';
 import DummyNews3 from './news3.png';
-import DummyDoctor4 from './doctor4.png'
 import Hospital1 from './hospitals1.png';
 import Hospital2 from './hospitals2.png';
 import Hospital3 from './hospitals3.png';

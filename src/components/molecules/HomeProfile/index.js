@@ -1,22 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
-import { color } from 'react-native-reanimated'
-import { DummyUser } from '../../../assets'
-import { colors, fonts } from '../../../utils'
+import React from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { color } from 'react-native-reanimated';
+import { DummyUser } from '../../../assets';
+import { colors, fonts } from '../../../utils';
 
-const HomeProfile = () => {
+const HomeProfile = ({ onPress }) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image source={DummyUser} style={styles.avatar} />
             <View>
                 <Text style={styles.name}>Shayna Melinda</Text>
                 <Text style={styles.profession}>Product Designer</Text>
             </View>
-        </View>
-    )
-}
+        </TouchableOpacity>
+    );
+};
 
-export default HomeProfile
+export default HomeProfile;
 
 const styles = StyleSheet.create({
     container: { flexDirection: 'row' },
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
         fontFamily: fonts.primary[600],
         color: colors.text.primary
     }
-})
+});

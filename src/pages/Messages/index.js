@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { DummyDoctor4, DummyDoctor2, DummyDoctor3, Hospital1, DummyDoctor1 } from '../../assets'
-import { ListDoctor } from '../../components'
+import { List } from '../../components'
 import { colors, fonts } from '../../utils'
 
-const Messages = () => {
+const Messages = ({ navigation }) => {
     const [doctors] = useState([
         {
             id: 1,
@@ -32,7 +32,8 @@ const Messages = () => {
                 {
                     doctors.map(doctor => {
                         return (
-                            <ListDoctor
+                            <List
+                                onPress={() => navigation.navigate('Chat')}
                                 key={doctor.id}
                                 profile={doctor.profile}
                                 name={doctor.name}

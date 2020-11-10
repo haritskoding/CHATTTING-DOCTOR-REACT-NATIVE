@@ -1,19 +1,27 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors, fonts } from '../../../utils'
 import { Button, Gap } from '../../atoms'
+import DarkkProfile from './DarkkProfile'
 
 const Header = ({ onPress, title, type }) => {
-    return (
-        <View style={styles.container(type)}>
-            <Button
-                type="icon-only"
-                icon={type === 'dark' ? 'back-light' : 'back-dark'}
-                onPress={onPress} />
-            <Text style={styles.text(type)}>{title}</Text>
-            <Gap width={24} />
-        </View>
-    )
+    if (type === 'dark-profile') {
+        return <DarkkProfile onPress={onPress} />
+    } else {
+        return (
+            <TouchableOpacity
+                style={styles.container(type)}
+            >
+                <Button
+                    type="icon-only"
+                    icon={type === 'dark' ? 'back-light' : 'back-dark'}
+                    onPress={onPress}
+                />
+                <Text style={styles.text(type)}>{title}</Text>
+                <Gap width={24} />
+            </TouchableOpacity>
+        )
+    }
 }
 
 export default Header

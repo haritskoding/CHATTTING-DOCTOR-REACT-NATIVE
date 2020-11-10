@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack';
 import {
     GetStarted,
     Splash,
@@ -9,9 +10,13 @@ import {
     Doctor,
     Messages,
     Hospitals,
-    ChooseDoctor
+    ChooseDoctor,
+    Chat,
+    UserProfile,
+    UpdateProfile,
+    DoctorProfile
 } from '../pages';
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigator } from '../components';
 
 const Stack = createStackNavigator();
@@ -25,13 +30,13 @@ const MainApp = () => {
             <Tab.Screen name="Messages" component={Messages} />
             <Tab.Screen name="Hospitals" component={Hospitals} />
         </Tab.Navigator >
-    )
-}
+    );
+};
 
 const Router = () => {
     return (
         //initialRouteName="namaKomponen"
-        <Stack.Navigator initialRouteName="MainApp">
+        <Stack.Navigator initialRouteName="Splash">
             <Stack.Screen
                 name="Splash"
                 component={Splash}
@@ -67,8 +72,27 @@ const Router = () => {
                 component={ChooseDoctor}
                 options={{ headerShown: false }}
             />
+            <Stack.Screen
+                name="Chat"
+                component={Chat}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="UserProfile"
+                component={UserProfile}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="UpdateProfile"
+                component={UpdateProfile}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="DoctorProfile"
+                component={DoctorProfile}
+                options={{ headerShown: false }}
+            />
         </Stack.Navigator>
-    )
-}
-
+    );
+};
 export default Router;

@@ -1,15 +1,21 @@
-import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import { color } from 'react-native-reanimated'
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { color } from 'react-native-reanimated';
 import {
     HomeProfile,
     DoctorCategory,
     RatedDoctor,
     NewsItem,
     Gap
-} from '../../components'
-import { colors, fonts } from '../../utils'
-import { JSONCategoryDoctor } from '../../assets'
+} from '../../components';
+import { colors, fonts } from '../../utils';
+import {
+    DummyDoctor1,
+    DummyDoctor2,
+    DummyDoctor3,
+    JSONCategoryDoctor
+} from '../../assets';
 
 
 const Doctor = ({ navigation }) => {
@@ -21,9 +27,9 @@ const Doctor = ({ navigation }) => {
             <View style={styles.content}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.wrapperSection}>
-                        <HomeProfile />
+                        <HomeProfile onPress={() => navigation.navigate('UserProfile')} />
                         <Text style={styles.welcome}>Mau Konsultasi dengan siapa
-                        hari ini?
+                        hari ini saynag?
                     </Text>
                     </View>
 
@@ -34,7 +40,7 @@ const Doctor = ({ navigation }) => {
                                 <Gap width={32}></Gap>
                                 {
                                     JSONCategoryDoctor.data.map(item => {
-                                        return <DoctorCategory key={item.id} category={item.category} onPress={() => NavigationPreloadManager.navigate('ChooseDoctor')} />
+                                        return <DoctorCategory key={item.id} category={item.category} onPress={() => navigation.navigate('ChooseDoctor')} />
                                     })
                                 }
                                 <Gap width={22}></Gap>
@@ -43,9 +49,9 @@ const Doctor = ({ navigation }) => {
                     </View>
                     <View style={styles.wrapperSection}>
                         <Text style={styles.sectionLabel}>Top Rated Doctors</Text>
-                        <RatedDoctor />
-                        <RatedDoctor />
-                        <RatedDoctor />
+                        <RatedDoctor name="Alexa Rachel" desc="Pediatrician" avatar={DummyDoctor1} onPress={() => navigation.navigate('DoctorProfile')} />
+                        <RatedDoctor name="Sunny Frank" desc="Dentist" avatar={DummyDoctor2} onPress={() => navigation.navigate('DoctorProfile')} />
+                        <RatedDoctor name="Khoerunnisa" desc="Podiatrist" avatar={DummyDoctor3} onPress={() => navigation.navigate('DoctorProfile')} />
                         <Text style={styles.sectionLabel}>Good News</Text>
                     </View>
 
